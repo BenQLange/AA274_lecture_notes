@@ -387,6 +387,16 @@ When looking at this algorithm, the key idea to remember is that only the most r
 \end{algorithm}
 
 \newpage
+\section {Summary}
+
+We have introduced 3 different implementations of SLAM, which are Gaussian SLAM (based on EKF and KF), Graph SLAM, and Fast SLAM (based on particle filter). 
+
+EKF SLAM assumes that all uncertainties follow a Gaussian distribution, and is therefore well understood and easy to compute. It is the best linear estimator that works especially well when uncertainty is low. However, because it is a unimodal estimate, it works poorly when uncertainties are high. When a point far from the mean is pushed through linearization, it will yield inaccurate estimates.
+
+Graph SLAM provides the best possible estimate based on an optimization problem that models all uncertainties as spring stiffnesses, and finds the minimum energy of the network. Exploiting matrix sparsity leads to efficient solutions, but can still be computationally complex when solving a full SLAM problem, leading to difficult implementation.
+
+Fast SLAM is the most natural representation of multimodal beliefs, able to handle any non-parametric distribution. It is the easiest to implement, relying on conditional independence to factorize the distribution to speed up computation. However, the problem does not scale well in large dimensions, and a large sample of particles is required for good convergence.
+
 \section {References}
 \begin{enumerate}[label={[\arabic*]}]
 \item R. Siegwart, I. R. Nourbakhsh, D. Scaramuzza.Introduction to Autonomous Mobile Robots. MIT Press, 2nd Edition, 2011
@@ -394,7 +404,7 @@ When looking at this algorithm, the key idea to remember is that only the most r
 
 
 \subsubsection*{Contributors}
-Winter 2019: [Your names here]
+Winter 2019: Colin Shi
 \\
 Winter 2018: Bo Kim, Matt Subrahmanyam, Ianis Bougdal-Lambert, Michelle Zhang, Barrett Weiss, Eric Ballouz
 
