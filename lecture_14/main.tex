@@ -385,8 +385,23 @@ When looking at this algorithm, the key idea to remember is that only the most r
     \caption{Fast-SLAM Algorithm}
     \label{alg:fastslam}
 \end{algorithm}
+\section{ROS packages with SLAM implementations}
+Below, we have compiled a list of the most popular ROS packages with SLAM implementations with short description based on the information available on wiki.ros.org and openslam-org.gihub.io.
+\begin{enumerate}
+    \item Gmapping: Implementation of OpenSlam's Gmapping which provides a 2-D occupancy grid based on a laser scan and a pose data. It uses Rao-Blackwellized particle filer which allows to solve the simultaneous localization and mapping problem where each particle represents an individual map of the environment.
+    \item TinySlam: The simplest and lightweight SLAM implementation based on laser range data and odometry
+    \item MRPT (Mobile Robot Programming Toolkit, C++) based packages:
+    \begin{enumerate}
+        \item EKF SLAM 2D: EKF-based package. It uses range-bearing sensors, odometry, 2D robot pose and 2D landmarks.
+        \item EKF SLAM 3D: EKF-based package. It uses range-bearing sensors, odometry, 6D robot pose and 3D landmarks.
+        \item GRAPH SLAM 2D: single robot or multi-robot pose-only graphSLAM. It uses laser scans and odometry.
+        \item ICP SLAM 2D: ICP-based package (Iterative Closest Points). It uses 2D laser scans. Builds only small to midsized maps. Larger maps requires more advanced implementations
+        \item RBPF SLAM: Rao Blackwellized based package. Uses range-only.
+    \end{enumerate}
+    \item Hector SLAM: LIDAR based SLAM that can be used without odometry. It can be used on robots with roll/pitch motion of the sensor, robot and both.
+    \item RGBD SLAM: uses RGB-D cameras (e.g. Microsoft Kinect).
+\end{enumerate}
 
-\newpage
 \section {Summary}
 
 We have introduced 3 different implementations of SLAM, which are Gaussian SLAM (based on EKF and KF), Graph SLAM, and Fast SLAM (based on particle filter). 
@@ -401,10 +416,12 @@ Fast SLAM is the most natural representation of multimodal beliefs, able to hand
 \begin{enumerate}[label={[\arabic*]}]
 \item R. Siegwart, I. R. Nourbakhsh, D. Scaramuzza.Introduction to Autonomous Mobile Robots. MIT Press, 2nd Edition, 2011
 \item S. Thrun, W. Burgard, and D. Fox. Probabilistic robotics. MIT press, 2005.
+\item ROS (Robot Operating System) Documentation wiki.ros.org
+\item OpenSLAM https://openslam-org.github.io/
 
 
 \subsubsection*{Contributors}
-Winter 2019: Colin Shi
+Winter 2019: Colin Shi, Bernard Lange
 \\
 Winter 2018: Bo Kim, Matt Subrahmanyam, Ianis Bougdal-Lambert, Michelle Zhang, Barrett Weiss, Eric Ballouz
 
