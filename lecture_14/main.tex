@@ -425,7 +425,7 @@ When our robot gets a measurement to a nearby landmark, it can use that informat
 
 \subsection {Maximum Likelihood Data Association}
 
-In maximum likelihood data association, the robot computes the probability that its current measurement corresponds to every landmark in its map. It then chooses the landmark with the highest probability of correspondence and assumes it is the correct association. This can be written as
+In maximum likelihood data association, the robot computes the probability that its current measurement corresponds to every landmark in its map. It then chooses the landmark with the highest probability of correspondence and assumes it is the correct association. This can be written as:
 
 \begin{equation}
 \hat{c}_t^=argmax_{c}p(z_t|c_{1:t},m,z_{1:t-1},u_{1:t})
@@ -437,7 +437,7 @@ In practice, we find this by calculating the expected measurement and measuremen
 
 \begin{figure}[H]
 \centering
-\includegraphics[]{algorithm_fig1}
+\includegraphics[scale=0.5]{algorithm_fig1}
 \caption{Algorithm}
 \end{figure}
 
