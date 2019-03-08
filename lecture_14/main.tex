@@ -397,22 +397,6 @@ When looking at this algorithm, the key idea to remember is that only the most r
     \caption{Fast-SLAM Algorithm}
     \label{alg:fastslam}
 \end{algorithm}
-\section{ROS packages with SLAM implementations}
-Below, we have compiled a list of the most popular ROS packages with SLAM implementations with short description based on the information available on wiki.ros.org and openslam-org.gihub.io.
-\begin{enumerate}
-    \item Gmapping: Implementation of OpenSlam's Gmapping which provides a 2-D occupancy grid based on a laser scan and a pose data. It uses Rao-Blackwellized particle filer which allows to solve the simultaneous localization and mapping problem where each particle represents an individual map of the environment.
-    \item TinySlam: The simplest and lightweight SLAM implementation based on laser range data and odometry
-    \item MRPT (Mobile Robot Programming Toolkit, C++) based packages:
-    \begin{enumerate}
-        \item EKF SLAM 2D: EKF-based package. It uses range-bearing sensors, odometry, 2D robot pose and 2D landmarks.
-        \item EKF SLAM 3D: EKF-based package. It uses range-bearing sensors, odometry, 6D robot pose and 3D landmarks.
-        \item GRAPH SLAM 2D: single robot or multi-robot pose-only graphSLAM. It uses laser scans and odometry.
-        \item ICP SLAM 2D: ICP-based package (Iterative Closest Points). It uses 2D laser scans. Builds only small to midsized maps. Larger maps requires more advanced implementations
-        \item RBPF SLAM: Rao Blackwellized based package. Uses range-only.
-    \end{enumerate}
-    \item Hector SLAM: LIDAR based SLAM that can be used without odometry. It can be used on robots with roll/pitch motion of the sensor, robot and both.
-    \item RGBD SLAM: uses RGB-D cameras (e.g. Microsoft Kinect).
-\end{enumerate}
 
 \section {EKF SLAM with unknown correspondences}
 
@@ -443,6 +427,24 @@ In practice, we find this by calculating the expected measurement and measuremen
 \end{figure}
 
 There are alternative methods that are more robust to incorrect associations. Multi-Hypothesis Tracking is one of those, but the maximum likelihood method is the simplest.
+
+\section{ROS packages with SLAM implementations}
+Below, we have compiled a list of the most popular ROS packages with SLAM implementations with short description based on the information available on wiki.ros.org and openslam-org.gihub.io.
+\begin{enumerate}
+    \item Gmapping: Implementation of OpenSlam's Gmapping which provides a 2-D occupancy grid based on a laser scan and a pose data. It uses Rao-Blackwellized particle filer which allows to solve the simultaneous localization and mapping problem where each particle represents an individual map of the environment.
+    \item TinySlam: The simplest and lightweight SLAM implementation based on laser range data and odometry
+    \item MRPT (Mobile Robot Programming Toolkit, C++) based packages:
+    \begin{enumerate}
+        \item EKF SLAM 2D: EKF-based package. It uses range-bearing sensors, odometry, 2D robot pose and 2D landmarks.
+        \item EKF SLAM 3D: EKF-based package. It uses range-bearing sensors, odometry, 6D robot pose and 3D landmarks.
+        \item GRAPH SLAM 2D: single robot or multi-robot pose-only graphSLAM. It uses laser scans and odometry.
+        \item ICP SLAM 2D: ICP-based package (Iterative Closest Points). It uses 2D laser scans. Builds only small to midsized maps. Larger maps requires more advanced implementations
+        \item RBPF SLAM: Rao Blackwellized based package. Uses range-only.
+    \end{enumerate}
+    \item Hector SLAM: LIDAR based SLAM that can be used without odometry. It can be used on robots with roll/pitch motion of the sensor, robot and both.
+    \item RGBD SLAM: uses RGB-D cameras (e.g. Microsoft Kinect).
+\end{enumerate}
+
 
 \section {Summary}
 
