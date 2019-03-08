@@ -6,6 +6,7 @@
 \usepackage[sc]{mathpazo}
 \usepackage[ruled]{algorithm2e}
 \usepackage{enumitem}
+\usepackage{hyperref}
 
 \renewcommand{\sfdefault}{kurier}
 
@@ -437,7 +438,7 @@ In practice, we find this by calculating the expected measurement and measuremen
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\columnwidth]{algorithm_fig1}
+\includegraphics[]{algorithm_fig1}
 \caption{Algorithm}
 \end{figure}
 
@@ -453,6 +454,21 @@ Graph SLAM provides the best possible estimate based on an optimization problem 
 
 Fast SLAM is the most natural representation of multimodal beliefs, able to handle any non-parametric distribution. It is the easiest to implement, relying on conditional independence to factorize the distribution to speed up computation. However, the problem does not scale well in large dimensions, and a large sample of particles is required for good convergence. Naive implementation is intractable due to the excessively large number of particles. A way to tackle this issue would be to use multiple filters; one estimator for trajectory and one for each landmark.
 
+\section {Other Resources/Additional Reading}
+\begin{itemize}
+    \item \textbf{Books:}
+    \item Probabilistic Robotics (Intelligent RObotics and Autonomous Agents Series) - Sbeastian Thrun, Wolfram Burgard, and Dieter Fox
+    \item Simultaneous Localization and Mapping - Exactly Sparse Information Filters (New Frontiers in Robotics) - Zhan Wang, Shoudong Hang, Gamini Dissanayake
+    \item 3D Robotic Mapping: The Simultaneous Localization and Mapping Problem with Six Degrees of Freedom - Andreas Nuchter
+\item \textbf{Open Source Software Packages:}
+    \item \href{https://www.openslam.org/}{https://www.openslam.org/} :contains a comprehensive list of SLAM software
+    \item \href{http://www.robots.ox.ac.uk/~gk/PTAM/}{http://www.robots.ox.ac.uk/~gk/PTAM/}: Visual SLAM
+    \item \href{https://developers.google.com/tango/developer-overview}{https://developers.google.com/tango/developer-overview}: Project Tango
+    \item \href{http://www.rawseeds.org/home/}{http://www.rawseeds.org/home/}: collection of benchmarked datasets
+    \item \href{https://vision.in.tum.de/research/vslam/lsdslam?redirect=1}{https://vision.in.tum.de/research/vslam/lsdslam?redirect=1} : Large-Scale Direct Monocular SLAM
+    \item \href{http://www.informatik.uni-freiburg.de/data/chairs/ais/openslam-the-resource-for-open-source-slam-implementations}{http://www.informatik.uni-freiburg.de/data/chairs/ais/openslam-the-resource-for-open-source-slam-implementations}: University of Freiburg
+\end{itemize}
+
 \section {References}
 \begin{enumerate}[label={[\arabic*]}]
 \item R. Siegwart, I. R. Nourbakhsh, D. Scaramuzza.Introduction to Autonomous Mobile Robots. MIT Press, 2nd Edition, 2011
@@ -463,7 +479,7 @@ Fast SLAM is the most natural representation of multimodal beliefs, able to hand
 
 
 \subsubsection*{Contributors}
-Winter 2019: Colin Shi, Bernard Lange, Paul Planeix, William Brannon, Sherry (Xuejiao) Li
+Winter 2019: Colin Shi, Bernard Lange, Paul Planeix, William Brannon, Sherry (Xuejiao) Li, Akash Singhal
 \\
 Winter 2018: Bo Kim, Matt Subrahmanyam, Ianis Bougdal-Lambert, Michelle Zhang, Barrett Weiss, Eric Ballouz
 
