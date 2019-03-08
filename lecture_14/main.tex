@@ -59,11 +59,19 @@
 
 \section{Introduction}
 
-During the last lecture, we covered an important class of SLAM algorithms based on EKF. However, one main issue with EKF-SLAM is that it tends to scale quite poorly with the number of features. In general EKF has squared complexity, supposing we have 1000 landmarks this becomes computationally prohibited.  Furthermore, this method relies on a linearization process performed globally, which is only efficient when the estimate is close to the truth. If non-linearities are large this can cause the divergence of our filter.
+During the last lecture, we covered an important class of SLAM algorithms based on EKFs. However, one main issue with EKF-SLAM is that it tends to scale quite poorly with the number of features. In general, EKF has squared complexity; in supposing we have on the scale of hundreds or more landmarks, this becomes computationally prohibitive.  Furthermore, this method relies on a linearization process performed globally, which is only efficient when the estimate is close to the truth. If non-linearities are large, this can cause the divergence of our filter.
 
-Also, a key issue is that we might assign fake landmarks and once it is done we keep them for granted. To fix this a approach would consist in using a provisional list approach by waiting several iterations before putting a landmark in the state.
+Also, a key issue is that we might assign "fake" landmarks and once it is done we keep them for granted. To fix this, an approach would consist in using a provisional list approach by waiting several iterations before putting a landmark in the state.
 
 In this lecture, we cover two additional algorithms for SLAM that don't suffer from these limitations: graph-based SLAM and particle-filter SLAM. We give a very quick overview of graph SLAM before moving on to particle-filter SLAM, often referred to in literature as Fast-SLAM, an extension of Monte Carlo. This will give us a good overview of the different techniques used in localization.
+
+\textbf{Learning Objectives:}
+\begin{itemize}
+\item Develop insight into solving full-scale SLAM problem, as opposed to the online-SLAM problem that was previously addressed. In full-scale SLAM, we estimate $p(x_{1:t},m,c_t|z_{1:t},u_{1:t})$
+\item Gain intuition in addressing full-scale SLAM problem via graph SLAM and fast SLAM
+\item Decompose these SLAM approaches into their fundamental mathematical formulation
+\item Understand the computational demands of these approaches, and distinguish scenarios regarding most appropriate SLAM implentation
+\end{itemize}
 
 \section{Graph SLAM}
 
@@ -424,7 +432,7 @@ Fast SLAM is the most natural representation of multimodal beliefs, able to hand
 
 
 \subsubsection*{Contributors}
-Winter 2019: Colin Shi, Bernard Lange, Paul Planeix
+Winter 2019: Colin Shi, Bernard Lange, Paul Planeix, William Brannon
 \\
 Winter 2018: Bo Kim, Matt Subrahmanyam, Ianis Bougdal-Lambert, Michelle Zhang, Barrett Weiss, Eric Ballouz
 
