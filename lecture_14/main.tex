@@ -413,6 +413,36 @@ Below, we have compiled a list of the most popular ROS packages with SLAM implem
     \item RGBD SLAM: uses RGB-D cameras (e.g. Microsoft Kinect).
 \end{enumerate}
 
+\section {EKF SLAM with unkown correspondences}
+
+We want to add discussion of EKF SLAM with unknown correspondences. We are still doing localization, but this time, the robot starts with a map of landmarks that does not change over the course of its run. So the difference is when the robot gets a range and bearing measurement, it will not know to which landmark that measurement corresponds.
+
+Below we will explain firstly the process for extimating the correspondence between measurements and landmarks and present the correspondence algorithm on its own. Then we will show how the correspondence estimation algorithm can be integrated with EKF localization algorithm we have learned before.
+
+\subsection {Measurement Correspondence Intro}
+
+When our robot gets a measurement to a nearby landmark, it can use that information to refine its estimate of its pose. In this current problem, we are no longer directly telling the robot to which landmark each measurement corresponds. Without knowledge of this correspondence measurements are basically useless to our robot. So our robot needs a way to estimate the correspondence between its measurements and the landmarks in its map. One way it can do this is through maximum likelihood data association.
+
+\subsection {Maximum Likelihood Data Association}
+
+In maximum likelihood data association, the robot computes the probability that its current measurement corresponds to every landmark in its map. It then chooses the landmark with the highest probability of correspondence and assumes it is the correct association. This can be written as
+
+\begin{equation}
+\hat{c}_t^=argmax_{c}p(z_t|c_{1:t},m,z_{1:t-1},u_{1:t})
+\end{equation}
+
+In other words, given the robot's past measurement corresponcences, map, past measurements and past control inputs, we can get which landmark has the highest probability of producing measurement.
+
+In practice, we find this by calculating the expected measurement and measurement covariance for every landmark in the map. We can then use these to calculate the measurement probability for every landmark and then select the landmark with the highest probability. The algorithm goes as follows:
+
+\begin{figure}[H]
+\centering
+\includegraphics[]{algorithm_fig1}
+\caption{Algorithm}
+\end{figure}
+
+There are alternative methods that are more robust to incorrect associations. Multi-Hypothesis Tracking is one of those, but the maximum likelihood method is the simplest.
+
 \section {Summary}
 
 We have introduced 3 different implementations of SLAM, which are Gaussian SLAM (based on EKF and KF), Graph SLAM, and Fast SLAM (based on particle filter). 
